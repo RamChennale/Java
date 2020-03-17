@@ -1,0 +1,225 @@
+•	Object
+•	Class
+•	Inheritance
+•	Polymorphism
+•	Abstraction
+•	Encapsulation
+
+
+
+•	Object: 
+***********
+Any entity that has state and behavior is known as an object. For example, a chair, pen, table, keyboard, bike, etc. 
+•	It can be physical or logical.
+•	An Object can be defined as an instance of a class. 
+•	A variable of class known as object 
+•	An object contains an address and takes up some space in memory. 
+•	Objects can communicate without knowing the details of each other's data or code.
+Example: A dog is an object because it has states like color, name, breed, etc. as well as behaviors like wagging the tail, barking, eating, etc.
+
+
+Object
+ 
+Object: is a bundle of data and its behaviour(often known as methods).
+Objects have two characteristics: They have states and behaviors.
+Examples of states and behaviors
+Example 1:
+Object: House
+State: Address, Color, Area
+Behavior: Open door, close door
+
+
+Class:
+******
+Collection of objects is called class. It is a logical entity.
+•	Collection data members and member functions known as class 
+•	A class can also be defined as a blueprint from which you can create an individual object. Class doesn't consume any space.
+
+
+Class in OOPs Concepts
+•	A class can be considered as a blueprint using which you can create as many objects as you like. For example, 
+•	Class Website that has two data members (also known as fields, instance variables and object states).
+public class Website {
+   //fields (or instance variable)
+   String webName;
+   int webAge;
+
+   // constructor
+   Website(String name, int age){
+      this.webName = name;
+      this.webAge = age;
+   }
+   public static void main(String args[]){
+      //Creating objects
+      Website obj1 = new Website("beginnersbook", 5);
+      Website obj2 = new Website("google", 18);
+
+     //Accessing object data through reference
+     System.out.println(obj1.webName+" "+obj1.webAge);
+     System.out.println(obj2.webName+" "+obj2.webAge);
+   }
+}
+Output:
+beginnersbook 5
+google 18
+
+--------------
+
+Inheritance:
+When one object acquires all the properties and behaviors of a parent object, it is known as inheritance. 
+•	It provides code reusability. 
+•	It is used to achieve runtime polymorphism (Method Overriding).
+
+
+Inheritance
+The process by which one class acquires the properties and functionalities of another class is called inheritance. Inheritance provides the idea of reusability of code and each sub class defines only those features that are unique to it, rest of the features can be inherited from the parent class.
+1.	Inheritance is a process of defining a new class based on an existing class by extending its common data members and methods.
+2.	Inheritance allows us to reuse of code, it improves reusability in your java application.
+3.	The parent class is called the base class or super class. The child class that extends the base class is called the derived class or sub class or child class.
+lass)
+
+Types of Inheritance:
+Single Inheritance: refers to a child and parent class relationship where a class extends the another class.
+Multilevel inheritance: refers to a child and parent class relationship where a class extends the child class. For example class A extends class B and class B extends class C.
+Hierarchical inheritance: refers to a child and parent class relationship where more than one classes extends the same class. For example, class B extends class A and class C extends class A.
+Multiple Inheritance: refers to the concept of one class extending more than one classes, which means a child class has two parent classes. Java doesn’t support multiple inheritance, read more about it
+----------
+
+
+Polymorphism:
+If one task is performed in different ways, it is known as polymorphism. 
+In Java, we use method overloading and method overriding to achieve polymorphism.
+
+Types of Polymorphism
+
+1) Static Polymorphism
+2) Dynamic Polymorphism
+
+1.	Method overloading static polymorphism
+2.	Method overriding Dynamic polymorphism
+
+For example: To draw something, for example, shape, triangle, rectangle, etc. We talk language as Kannada, English, Hindi, Marathi, Tamil etc. (speak something; for example, a cat speaks meow, dog barks woof, etc.)
+
+perform a single action in multiple(different) ways
+ For example, lets say we have a class Animal that has a method animalSound()
+public abstract class Animal{
+   ...
+   public abstract void animalSound();
+}
+Now suppose we have two Animal classes Dog and Lion that extends Animal class. We can provide the implementation detail there.
+public class Lion extends Animal{
+...
+    @Override
+    public void animalSound(){
+        System.out.println("Roar");
+    }
+}
+and
+public class Dog extends Animal{
+...
+    @Override
+    public void animalSound(){
+        System.out.println("Woof");
+    }
+}
+
+Types of Polymorphism
+1) Static Polymorphism
+2) Dynamic Polymorphism
+Static Polymorphism:
+Polymorphism that is resolved during compiler time is known as static polymorphism. Method overloading can be considered as static polymorphism example.
+Method Overloading: This allows us to have more than one methods with same name in a class that differs in signature.
+class DisplayOverloading
+{
+    public void disp(char c)
+    {
+         System.out.println(c);
+    }
+    public void disp(char c, int num)  
+    {
+         System.out.println(c + " "+num);
+    }
+}
+public class ExampleOverloading
+{
+   public static void main(String args[])
+   {
+       DisplayOverloading obj = new DisplayOverloading();
+       obj.disp('a');
+       obj.disp('a',10);
+   }
+}
+Output:
+a
+a 10
+
+Dynamic Polymorphism
+It is also known as Dynamic Method Dispatch. Dynamic polymorphism is a process in which a call to an overridden method is resolved at runtime rather, thats why it is called runtime polymorphism.
+Example
+class Animal{
+   public void animalSound(){
+	System.out.println("Default Sound");
+   }
+}
+public class Dog extends Animal{
+
+   public void animalSound(){
+	System.out.println("Woof");
+   }
+   public static void main(String args[]){
+	Animal obj = new Dog();
+	obj.animalSound();
+   }
+}
+Output:
+Woof
+Since both the classes, child class and parent class have the same method animalSound. Which of the method will be called is determined at runtime by JVM.
+ 
+
+---------------
+Abstraction:
+
+Hiding internal details and showing relevant functionality is known as abstraction. For example phone call, we don't know the internal processing (Abstract methods in abstract class and all methods in interface).
+In Java, we use abstract class and interface to achieve abstraction.
+
+Abstraction is a process where you show only “relevant” data and “hide” unnecessary details of an object from the user. 
+For example, when you login to your bank account online, you enter your user_id and password and press login, what happens when you press login, how the input data sent to server, how it gets verified is all abstracted away from the you
+-----------------
+Encapsulation:
+Binding (or wrapping) code and data together into a single unit are known as encapsulation. For example, a capsule, it is wrapped with different medicines. (Our utility classes used in other class)
+
+Encapsulation
+Encapsulation simply means binding object state(fields) and behavior(methods) together. If you are creating class, you are doing encapsulation.
+Encapsulation example in Java
+How to
+1) Make the instance variables private so that they cannot be accessed directly from outside the class. You can only set and get values of these variables through the methods of the class.
+2) Have getter and setter methods in the class to set and get the values of the fields.
+class EmployeeCount
+{
+   private int numOfEmployees = 0;
+   public void setNoOfEmployees (int count)
+   {
+       numOfEmployees = count;
+   }
+   public double getNoOfEmployees () 
+   {
+       return numOfEmployees;
+   }
+}
+public class EncapsulationExample
+{
+   public static void main(String args[])
+   {
+      EmployeeCount obj = new EmployeeCount ();
+      obj.setNoOfEmployees(5613);
+      System.out.println("No Of Employees: "+(int)obj.getNoOfEmployees());
+    }
+}
+Output:
+No Of Employees: 5613
+The class EncapsulationExample that is using the Object of class EmployeeCount will not able to get the NoOfEmployees directly. It has to use the setter and getter methods of the same class to set and get the value.
+So what is the benefit of encapsulation in java programming
+Well, at some point of time, if you want to change the implementation details of the class EmployeeCount, you can freely do so without affecting the classes that are using it.
+
+--------------
+
