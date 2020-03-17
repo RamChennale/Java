@@ -1,0 +1,324 @@
+Difference between class and object
+
+Class	 Object
+
+1) A class is a way of binding the data and associated methods in a single unit.	1) Class variable is known as Object
+
+2) Whenever we start executing a program, the class will be loaded into main memory with the help of class loader subsystem (a part of JVM) only once.	2) After loading the class memory, objects can be created in n number.
+
+3) When the class id defined there is no memory space for data members class	3) When an object is created we get the memory space for data member’s class.
+
+
+----------------------
+
+NON-STATIC VARIABLES	STATIC VARIABLES
+1) An instance variable is one whose
+memory space is creating each and
+every time whenever an object is
+created.	1) Static variables are whose memory
+space is creating only once when the
+class is loaded by class loader
+subsystem (a part of JVM) in the main
+Memory irrespective of number of Objects.
+2) Programmatically instance variable
+declaration should not be preceded
+by keyword static.	2) Programmatically static variable
+declaration must be preceded by
+keyword static.
+3) Declaration : Data type v1, v2…vn;
+Ex: int a,b,c;	3) Declaration : Static data type v1, v2…vn;
+Ex: static int a,b,c;
+4) Instance variable must be accessed
+with respect to object name i.e.,
+objname.varname;	4) Static variables must be accessed
+with respect to class name i.e.,
+classname.varname;
+5) Value of instance variable is not
+sharable.	5) Value of static variable is always
+recommended for sharable.
+6) Instance variable are also known as
+object level data members since they
+are dependent on objects.	6) Static variable are also known as class
+level data members since they are
+dependent on classes.
+
+-----------------------
+
+Difference between abstract class and interface
+-Abstract class and interface both are used to achieve abstraction where we can declare the abstract methods.
+-Abstract class and interface both can't be instantiated.
+
+Abstract class	Interface
+1) Abstract class can have abstract and non-abstract methods.	Interface can have only abstract methods. Since Java 8, it can have default and static methods also.
+2) Abstract class doesn't support multiple inheritance.	Interface supports multiple inheritance.
+3) Abstract class can have final, non-final, static and non-static variables.	Interface has only static final variables.
+4) Abstract class can provide the implementation of interface.	Interface can't provide the implementation of abstract class.
+5) The abstract keyword is used to declare a class as abstract class.	The interface keyword is used to declare interface.
+6) An abstract class can extend another Java class and implement multiple Java interfaces.	An interface can extend another Java interface only.
+7) An abstract class can be extended using keyword "extends".	An interface class can be implemented using keyword "implements".
+8) A Java abstract class can have class members like private, protected, etc.	Members of a Java interface are public by default.
+9)Example:
+public abstract class Shape{
+public abstract void draw();
+}	Example:
+public interface Drawable{
+void draw();
+}
+
+package gneral;
+
+public abstract class AbsClass {
+
+	public int add(int a, int b) {
+		a=a+b;
+		System.out.println("a= a+b in abstract class :"+ a);
+		return a;
+	}
+	
+	public abstract int sub(int a, int b);
+}
+
+package gneral;
+
+public class AbsClassImple extends AbsClass {
+
+	@Override
+	public int sub(int a, int b) {
+		int sub = a - b;
+		System.out.println("Abstract class method implemented in class which is extended a abstract class "+sub);
+		return sub;
+
+	}
+
+	public static void main(String[] args) {
+		AbsClass absClass = new AbsClassImple();
+		absClass.sub(20, 10);
+		absClass.add(2, 3);
+		
+		AbsClass absClass2= new AbsClass() {
+			
+			public int sub(int a, int b) {
+				int sub = a - b;
+				System.out.println("Object of Abstract class created in Annonymous way all method of abstract class need to be implemented inside the Annonymous block of object creation "+sub);
+				return sub;
+			}
+		};
+		absClass2.sub(32, 3);
+		
+	}
+
+}
+
+-----------------------------
+
+Difference between String and StringBuffer
+There are many differences between String and StringBuffer. A list of differences between String and StringBuffer are given below:
+No.	String	StringBuffer
+1)	String class is immutable(cannot modified).	StringBuffer class is mutable.
+2)	String is slow and consumes more memory when you concat too many strings because every time it creates new instance.	StringBuffer is fast and consumes less memory when you cancat strings.
+3)	String class overrides the equals() method of Object class. 
+So you can compare the contents of two strings by equals() method.	StringBuffer class doesn't override the equals() method of Object class.
+
+
+[StringBuffer is synchronized  and StringBuffer is less efficient than StringBuilder]
+
+--------------------------
+
+Difference between StringBuffer and StringBuilder
+Java provides three classes to represent a sequence of characters: String, StringBuffer, and StringBuilder. 
+The String class is an immutable class whereas StringBuffer and StringBuilder classes are mutable. There are many differences between StringBuffer and StringBuilder. The StringBuilder class is introduced since JDK 1.5.
+A list of differences between StringBuffer and StringBuilder are given below:
+No.	StringBuffer	StringBuilder
+1)	StringBuffer is synchronized i.e. thread safe. It means two threads can't call the methods of StringBuffer simultaneously.	StringBuilder is non-synchronized i.e. not thread safe. It means two threads can call the methods of StringBuilder simultaneously.
+2)	StringBuffer is less efficient than StringBuilder.	StringBuilder is more efficient than StringBuffer.
+
+-------------------------
+
+
+
+Difference between method overloading and method overriding in java
+There are many differences between method overloading and method overriding in java. A list of differences between method overloading and method overriding are given below
+No.	Method Overloading	Method Overriding
+1)	Method overloading is used to increase the readability of the program.	Method overriding is used to provide the specific implementation of the method that is already provided by its super class.
+2)	Method overloading is performed within class.	Method overriding occurs in two classes that have IS-A (inheritance) relationship.
+3)	In case of method overloading, parameter must be different.	In case of method overriding, parameter must be same.
+4)	Method overloading is the example of compile time polymorphism.	Method overriding is the example of run time polymorphism.
+5)	In java, method overloading can't be performed by changing return type of the method only. Return type can be same or different in method overloading. But you must have to change the parameter.	Return type must be same or covariant in method overriding.
+(covariant means same kind group byte==short, int and long)
+6)	Overloading example
+1.	class OverloadingExample{  
+2.	static int add(int a,int b){
+3.	return a+b;
+4.	}  
+5.	static int add(int a,int b,int c){
+6.	return a+b+c;
+7.	}  
+8.	}  	Overriding example
+1.	class Animal{  
+2.	void eat(){
+3.	System.out.println("eating...");
+4.	}  
+5.	}  
+6.	class Dog extends Animal{  
+7.	void eat(){
+8.	System.out.println("eating bread...");
+9.	}  
+10.	}  
+		
+
+---------------------------------
+
+
+Difference between constructor and method in Java
+There are many differences between constructors and methods. They are given below.
+
+Java Constructor	Java Method
+A constructor is used to initialize the state of an object.	A method is used to expose the behavior of an object.
+A constructor has a no return type.	A method must have return type.
+The constructor is invoked implicitly.	The method is invoked explicitly.
+The Java compiler provides a default constructor if you don't have any constructor in a class.	The method is not provided by the compiler in any case.
+The constructor name must be same as the class name.	The method name may or may not be same as class name.
+
+---------------------------------
+
+Difference between Abstraction and Encapsulation
+Abstraction	Encapsulation
+Abstraction is supported using interface and abstract class 
+Encapsulation is supported using access modifiers e.g. public, private and protected.
+Abstraction solves the problem at design level 	Encapsulation solves problem at implementation level.
+ Abstraction is about hiding unwanted details while giving out most essential details.
+In other words, Abstraction means extracting common details or generalizing things	Encapsulation means hiding the code and data into a single unit e.g. class or method to protect inner working of an object from outside world
+Abstraction lets you focus on what the object does instead of how it does,	Encapsulation means hiding the internal details of how an object works. When you keep internal working details private
+Abstraction focus on outer lookout e.g. mobile display, keypad and moving of vehicle	 Encapsulation focuses on internal working or inner lookout e.g. how exactly the mobile display & keypad connected and vehicle moves 
+Abstraction focus on outer layout in terms of deign  	Encapsulation focus on inner layout in terms of implementation  
+
+-----------------------------------
+
+
+COLLECTIONS FRAMEWORK
+**********************
+
+Java Collections Interview Questions
+
+1) What is the Collection framework in Java?
+Collection Framework is a combination of classes and interface which is used to store and manipulate the data in the form of objects. 
+It provides various 
+classes : ArrayList, Vector, Stack, and HashSet, etc. and 
+interfaces : List, Queue, Set, etc. 
+
+2) What are the main differences between array and collection?
+Array and Collection are somewhat similar regarding storing the references of objects and manipulating the data, but they differ in many ways. 
+
+o	Arrays are always of fixed size, i.e., a user can not increase or decrease the length of the array according to their requirement or at runtime, but In Collection size can be changed dynamically as per need.
+o	Arrays can only store homogeneous or similar type objects, but in Collection, heterogeneous objects can be stored.
+o	Arrays cannot provide the no ready-made methods for user requirements as sorting, searching and manipulation, etc. but Collection includes readymade methods to use.
+
+3) Explain various interfaces used in Collection framework?
+Collection framework implements various interfaces, Collection interface and Map interface (java.util.Map) are the mainly used interfaces of Java Collection Framework, list of interfaces of Collection Framework is given below:
+1.	 Collection interface: Collection (java.util.Collection) is the primary interface, and every collection must implement this interface.
+Syntax:
+public interface Collection<E>extends Iterable  
+Where <E> represents that this interface is of Generic type and Iterable also a interface.
+
+2.	List interface: List interface extends the Collection interface, and it is an ordered collection of objects. It contains duplicate elements. It also allows random access of elements.
+Syntax:
+public interface List<E> extends Collection<E>  
+
+3.	Set interface: Set (java.util.Set) interface is a collection which cannot contain duplicate elements. It can only include inherited methods of Collection interface
+Syntax:
+public interface Set<E> extends Collection<E>  
+
+4.	Queue interface: Queue (java.util.Queue) interface defines queue data structure, which stores the elements in the form FIFO (first in first out).
+Syntax:
+public interface Queue<E> extends Collection<E>  
+
+5.	Dequeue interface: it is a double-ended-queue. It allows the insertion and removal of elements from both ends. It implants the properties of both Stack and queue so it can perform LIFO (Last in first out) stack and FIFO (first in first out) queue, operations.
+Syntax:
+public interface Dequeue<E> extends Queue<E>  
+
+6.	 Map interface: A Map (java.util.Map) represents a key, value pair storage of elements. Map interface does not implement the Collection interface. It can only contain a unique key but can have duplicate value. There are two interfaces which implement Map in java that are Map interface and Sorted Map.
+
+Q) What is the difference between Array and ArrayList?
+SN	Array	ArrayList
+1	The Array is of fixed size, means we cannot resize the array as per need.	ArrayList is dynamic size we can change the size dynamically.
+2	Arrays are of the static type.	ArrayList is of dynamic size.
+3	Arrays can store primitive data types as well as objects.	ArrayList cannot store the primitive data types it can only store the objects.
+
+
+4) What is the difference between ArrayList and Vector?
+
+No.	ArrayList	Vector
+1)	ArrayList is not synchronized.	Vector is synchronized.
+2)	ArrayList is not a legacy class.	Vector is a legacy class.
+3)	ArrayList increases its size by 50% of the array size.	Vector increases its size by doubling the array size.
+4)	ArrayList is not thread-safe as it is not synchronized.	Vector list is thread-safe as it’s every method is synchronized.
+
+
+
+
+
+5) What is the difference between ArrayList and LinkedList?
+No.	ArrayList	LinkedList
+1)	ArrayList uses a dynamic array.	LinkedList uses a doubly linked list.
+2)	ArrayList is not efficient for manipulation because too much is required.	LinkedList is efficient for manipulation.
+3)	ArrayList is better to store and fetch data.	LinkedList is better to manipulate data.
+4)	ArrayList provides random access.	LinkedList does not provide random access.
+5)	ArrayList takes less memory overhead as it stores only object	LinkedList takes more memory overhead, as it stores the object & address of that object.
+
+
+6) What is the difference between Iterator and ListIterator?
+Iterator: traverses the elements in the forward direction only 
+ListIterator: traverses the elements into forward and backward direction.
+No.	Iterator	ListIterator
+1)	The Iterator traverses the elements in the forward direction only.	ListIterator traverses the elements in backward and forward directions both.
+2)	The Iterator can be used in List, Set, and Queue.	ListIterator can be used in List only.
+3)	The Iterator can only perform remove operation while traversing the collection.	ListIterator can perform add,remove and set operation while traversing the collection.
+
+
+7) What is the difference between Iterator and Enumeration?
+No.	Iterator	Enumeration
+1)	The Iterator can traverse legacy and non-legacy elements.	Enumeration can traverse only legacy elements.
+2)	The Iterator is fail-fast.	Enumeration is not fail-fast.
+3)	The Iterator is slower than Enumeration.	Enumeration is faster than Iterator.
+4)	The Iterator can perform remove operation while traversing the collection.	The Enumeration can perform only traverse operation on the collection.
+
+
+13) What is the difference between HashMap and Hashtable?
+No.	HashMap	Hashtable
+1)	HashMap is not synchronized.	Hashtable is synchronized.
+2)	HashMap can contain one null key&values.	Hashtable dose not contain any null key & value.
+3)	HashMap is not thread-safe	Hashtable is thread-safe
+4)	 HashMap inherits the AbstractMap class	Hashtable inherits the Dictionary class.
+
+
+14) What is the difference between HashMap and LinkedHashMap?
+No.	HashMap	LinkedHashMap
+1)	It will not maintains insertion order.	maintains insertion order.
+2)	Syntax:
+public class HashMap extends AbstractMap 
+implements Map,Cloneable, Serializable
+	Syntax:
+public class LinkedHashMap extends HashMap 
+0implements Map
+
+3)	HashMap is not thread-safe	
+4)	•	 A HashMap contains values based on the key.
+•	It contains only unique elements.
+•	It may have one null key and multiple null values.
+	•	A LinkedHashMap contains values based on the key.
+•	It contains only unique elements.
+•	It may have one null key and multiple null values.
+
+
+
+
+
+15) What is the difference between Comparable and Comparator?
+No.	Comparable	Comparator
+1)	Comparable provides only one sort of sequence.	The Comparator provides multiple sorts of sequences.
+2)	It provides one method named compareTo().	It provides one method named compare().
+3)	It is found in java.lang package.	It is located in java.util package.
+4)	If we implement the Comparable interface, The actual class is modified.	The actual class is not changed.
+
+
+----------------------------------
