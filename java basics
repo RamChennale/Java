@@ -1,0 +1,1021 @@
+Static keyword
+-----------------
+
+The static keyword in Java is used for memory management mainly. 
+We can apply java static keyword with variables, methods, blocks and nested class. 
+The static keyword belongs to the class than an instance of the class.
+The static can be:
+1.	Variable (also known as a class variable)
+2.	Method (also known as a class method)
+3.	Block
+4.	Nested class
+
+Advantages of static variable
+It makes your program memory efficient (i.e., it saves memory).
+Java static property is shared to all objects.
+
+Q) Why is the Java main method static?
+It is because the object is not required to call a static method. If it were a non-static method, JVM creates an object first then call main() method that will lead the problem of extra memory allocation
+
+Q) Can we execute a program without main() method?
+No, one of the ways was the static block, but it was possible till JDK 1.6. Since JDK 1.7, it is not possible to execute a java class without the main method.
+
+-----------
+this keyword in java
+In java, this is a reference variable that refers to the current class object.
+
+Usage of java this keyword
+Here is given the 6 usage of java this keyword.
+1.	this can be used to refer current class instance variable.
+2.	this can be used to invoke current class method (implicitly)
+3.	this() can be used to invoke current class constructor.
+4.	this can be passed as an argument in the method call.
+5.	this can be passed as argument in the constructor call.
+6.	this can be used to return the current class instance from the method.
+
+Rule for ‘this’:
+Whenever we use either this () or this (…) in the current class constructors, that statements
+Must be used as first statement only.
+---------------
+
+Constructors in Java
+In Java, a constructor is a block of codes similar to the method. 
+•	It is called when an instance of the object is created and memory is allocated for the object.
+•	It is a special type of method which is used to initialize the object.
+
+RULE-1:
+Whenever we create an object only with default constructor defining the default constructor is optional. If we are not defining default constructor of a class then JVM will call automatically system defined default constructor (SDDC).
+If we define, JVM will call user/programmer defined default constructor (UDDC).
+
+RULE-2:
+Whenever we create an object using parameterized constructor, it is mandatory for the
+JAVA programmer to define parameterized constructor otherwise we will get compile time error.
+
+RULE-3:
+Whenever we define/create the objects with respect to both parameterized constructor and
+default constructor, it is mandatory for the JAVA programmer to define both the constructors.
+
+NOTE:
+When we define a class, that class can contain two categories of constructors they are 
+1.	Single default constructor and 
+2.	‘n’ number of parameterized constructors (overloaded constructors).
+
+When is a constructor called
+Every time an object is created using new() keyword, at least one constructor is called. It calls a default constructor.
+
+Note: It is called constructor because it constructs the values at the time of object creation. It is not necessary to write a constructor for a class. It is because java compiler creates a default constructor if your class doesn't have any.
+
+Rules for creating Java constructor
+There are two rules defined for the constructor.
+
+1.	Constructor name must be the same as its class name
+2.	A Constructor must have no explicit return type
+3.	A Java constructor cannot be abstract.
+4.	A Java constructor cannot be static.
+5.	A Java constructor cannot be synchronized.
+
+Note: 
+We can use access modifiers while declaring a constructor. 
+It controls the object creation. In other words, we can have private, protected, public or default constructor in Java.
+
+Types of Java constructors
+There are two types of constructors in Java:
+1.	Default constructor (no-arg constructor)
+2.	Parameterized constructor
+
+Difference between constructor and method in Java
+There are many differences between constructors and methods. They are given below.
+
+Java Constructor	Java Method
+A constructor is used to initialize the state of an object.	A method is used to expose the behavior of an object.
+A constructor has a no return type.	A method must have a return type.
+The constructor is invoked implicitly.	The method is invoked explicitly.
+The Java compiler provides a default constructor if you don't have any constructor in a class.	The method is not provided by the compiler in any case.
+The constructor name must be same as the class name.	The method name may or may not be same as class name.
+
+Java Copy Constructor
+There is no copy constructor in java.
+However we can copy the values from one object to another like copy constructor in C++.
+There are many ways to copy the values of one object into another in java. They are:
+•	By constructor
+•	By assigning the values of one object into another
+•	By clone() method of Object class
+ 
+Student7 s1 = new Student7(111,"Karan");  
+Student7 s2 = new Student7();  
+ s2.id=s1.id;  
+s2.name=s1.name;  
+
+Q) Does constructor return any value?
+Yes, it is the current class instance i.e. object (You cannot use return type yet it returns a value).
+Can constructor perform other tasks instead of initialization?
+Yes, 
+•	Object creation, 
+•	starting a thread, 
+•	Calling a method, etc. 
+You can perform any operation in the constructor as you perform in the method.
+
+----------------
+
+Method Overloading in Java
+If a class has multiple methods having same name but different in parameters, it is known as Method Overloading.
+If we have to perform only one operation, having same name of the methods increases the readability of the program.
+Suppose you have to perform addition of the given numbers but there can be any number of arguments, if you write the method such as a(int, int) for two parameters, and b(int,int,int) for three parameters then it may be difficult for you as well as other programmers to understand the behavior of the method because its name differs.
+So, we perform method overloading to figure out the program quickly.
+Advantage of method overloading
+Method overloading increases the readability of the program.
+Different ways to overload the method
+There are two ways to overload the method in java
+1.	By changing number of arguments
+2.	By changing the data type
+In java, Method Overloading is not possible by changing the return type of the method only.
+Can we overload java main() method?
+Yes, by method overloading. You can have any number of main methods in a class by method overloading. But JVM calls main() method which receives string array as arguments only. Let's see the simple example:
+
+class TestOverloading4{  
+
+public static void main(String[] args){
+System.out.println("main with String[]");
+}  
+public static void main(String args){
+System.out.println("main with String");
+}  
+public static void main(){
+System.out.println("main without args");
+}  
+}
+Output:
+main with String[]
+
+
+------------------
+
+Method Overriding in Java
+
+If subclass (child class) has the same method as declared in the parent class it is known as method overriding in Java.
+In other words, If a subclass provides the specific implementation of the method that has been declared by one of its parent class, it is known as method overriding.
+
+Usage of Java Method Overriding
+•	Method overriding is used to provide the specific implementation of a method which is already provided by its super class.
+•	Method overriding is used for runtime polymorphism
+
+Rules for Java Method Overriding
+1.	The method must have the same name as in the parent class
+2.	The method must have the same parameter as in the parent class.
+3.	There must be an IS-A relationship (inheritance) between classes.(using extends)
+Example of method overriding
+In this example, we have defined the run method in the subclass as defined in the parent class but it has some specific implementation. The name and parameter of the method are the same, and there is IS-A relationship between the classes, so there is method overriding.
+//Java Program to illustrate the use of Java Method Overriding  
+//Creating a parent class.  
+class Vehicle{  
+ 	//defining a method  
+ 	void run(){
+System.out.println("Vehicle is running");}  
+}  
+
+//Creating a child class  
+class Bike2 extends Vehicle{  
+//defining the same method as in the parent class  
+void run(){
+System.out.println("Bike is running safely");
+}    
+public static void main(String args[]){  
+Bike2 obj = new Bike2();//creating object  
+obj.run();//calling method  
+}  
+}  
+
+
+Output:
+Bike is running safely
+
+A real example of Java Method Overriding
+Consider a scenario where Bank is a class that provides functionality to get the rate of interest. However, the rate of interest varies according to banks. For example, SBI, ICICI and AXIS banks could provide 8%, 7%, and 9% rate of interest.
+ 
+Can we override static method?
+No, a static method cannot be overridden. It can be proved by runtime polymorphism, so we will learn it later.
+
+Why can we not override static method?
+It is because the static method is bound with class whereas instance method is bound with an object. 
+Static belongs to the class area, and an instance belongs to the heap area.
+
+Can we override java main method?
+No, because the main is a static method.
+
+
+----------------------------
+
+Super Keyword in Java
+The super keyword in Java is a reference variable which is used to refer immediate parent class object.
+Whenever you create the instance of subclass, an instance of parent class is created implicitly which is referred by super reference variable.
+Usage of Java super Keyword
+1.	super can be used to refer immediate parent class instance variable.
+2.	super can be used to invoke immediate parent class method.
+3.	super() can be used to invoke immediate parent class constructor.
+Note: super() is added in each class constructor automatically by compiler if there is no super() or this().
+As we know well that default constructor is provided by compiler automatically if there is no constructor. But, it also adds super() as the first statement.
+Another example of super keyword where super() is provided by the compiler implicitly.
+1.	class Animal{  
+2.	Animal(){System.out.println("animal is created");}  
+3.	}  
+4.	class Dog extends Animal{  
+5.	Dog(){  
+6.	System.out.println("dog is created");  
+7.	}  
+8.	}  
+9.	class TestSuper4{  
+10.	public static void main(String args[]){  
+11.	Dog d=new Dog();  
+12.	}}  
+Output:
+animal is created
+dog is created
+
+
+‘Super’ keyword:
+Super keyword is used for differentiating the base class features with derived class features.
+Super keyword is placing an important role in three places, they are at 
+Variable level 
+Method level
+Constructor level
+--------------------------
+
+
+Final Keyword in Java
+The final keyword in java is used to restrict the user. 
+The java final keyword can be used in many contexts, final can be:
+1.	variable
+2.	method
+3.	class
+
+•	The final keyword can be applied with the variables.
+•	A final variable that have no value it is called blank final variable or uninitialized final variable. 
+•	It can be initialized in the constructor only. 
+•	The blank final variable can be static also which will be initialized in the static block only. 
+
+  
+1) Java final variable
+If you make any variable as final, you cannot change the value of final variable (It will be constant).
+
+2) Java final method
+If you make any method as final, you cannot override it.
+
+3) Java final class
+If you make any class as final, you cannot extend it.
+Q) What is blank or uninitialized final variable?
+A final variable that is not initialized at the time of declaration is known as blank final variable.
+If you want to create a variable that is initialized at the time of creating object and once initialized may not be changed, it is useful. For example PAN CARD number of an employee.
+It can be initialized only in constructor.
+
+NOTE:
+Final classes cannot be inherited.
+If the base class contains private data members then that type of data members will not be
+Inherited into derived class.
+Whatever the data members are coming from base class to the derived class, the base class
+members are logically declared in derived class, the base class methods are logically defined
+in derived class.
+Private data members and private methods of the base class will not be inherited at all.
+Whenever we develop any inheritance application, it is always recommended to create an object of bottom most derived class. Since, bottom most derived class contains all the features from its super classes.
+------------------
+
+Static Binding and Dynamic Binding
+Connecting a method call to the method body is known as binding.
+There are two types of binding
+1.	Static Binding (also known as Early Binding ie COMPILE TIME POLYMORPHISM).
+2.	Dynamic Binding (also known as Late Binding ie RUN TIME POLYMORPHISM).
+ 
+--------------------
+Abstract class in Java
+A class which is declared with the abstract keyword is known as an abstract class in Java.          Abstract class can have abstract and non-abstract methods (method with the body).
+Before learning the Java abstract class, let's understand the abstraction in Java first.
+Abstraction in Java
+Abstraction is a process of hiding the implementation details and showing only functionality to the user.
+Another way, it shows only essential things to the user and hides the internal details, for example, sending SMS where you type the text and send the message. You don't know the internal processing about the message delivery.
+Abstraction lets you focus on what the object does instead of how it does it.
+Ways to achieve Abstraction
+There are two ways to achieve abstraction in java
+1.	Abstract class (0 to 100%)
+2.	Interface (100%)
+
+Abstract class in Java
+A class which is declared as abstract is known as an abstract class. It can have abstract and non-abstract methods. It needs to be extended and its method implemented. It cannot be instantiated.
+Points to Remember
+o	An abstract class must be declared with an abstract keyword.
+o	It can have abstract and non-abstract methods.
+o	It cannot be instantiated.
+o	It can have constructors and static methods also.
+o	It can have final methods which will force the subclass not to change the body of the method.
+
+
+ABSTRACT CLASSES:
+In JAVA we have two types of classes they are concrete classes and abstract classes.
+•	Concrete class: is one which contains fully defined methods. Defined methods are also
+known as implemented or concrete methods. With respect to concrete class, we can create
+an object of that class directly.
+•	Abstract class: is one which contains some defined methods and some undefined
+Methods. Undefined methods are also known as unimplemented or abstract methods.
+Abstract method is one which does not contain any definition. To make the method as
+abstract we have to use a keyword called abstract before the function declaration.
+
+Syntax for ABSTRACT CLASS:
+abstract return_type method_name (method parameters if any);
+Abstract classes should not be final, since, they are always reusable.
+ Abstract classes are basically used to implement polymorphism; we use the concept of dynamic binding. 
+Hence abstract classes, polymorphism and dynamic binding will improve the performance of JAVA applications by reducing amount of memory space.
+
+Whenever we inherit ‘n’ number of abstract methods from abstract base class to derived
+Class, if the derived class defines all ‘n’ number of abstract methods in the derived class then that class becomes concrete class. 
+If the derived class is not defining at least one abstract method out of ‘n’ abstract methods then the derived class is known as abstract derived class and to make that class abstract we use a keyword called abstract.
+
+ An abstract base class is one which contains physical representation of abstract methods.
+An abstract derived class is one which contains logical declaration of abstract methods which are inherited from abstract base class.
+
+Note :***
+An object of either concrete base class or abstract base class contains the details about
+those methods which are available in that class only but this object (concrete base class or abstract base class) does not contains details of those methods which are specially defined in derived class’s.
+--------------------------
+
+Interface in Java
+An interface in it is a collection of abstract methods and static final variable.  (Like a class, an interface can have methods and variables BUT methods declared in an interface are by default abstract (only method signature, no body).
+
+•	Interfaces specify what a class must do and not how (It is the blueprint of the class)
+•	The interface in Java is a mechanism to achieve abstraction. 
+•	There can be only abstract methods in the Java interface not method body. 
+•	It is used to achieve abstraction and multiple inheritance in Java.
+In other words, you can say that interfaces can have abstract methods and variables. It cannot have a method body.
+
+Java Interface also represents the IS-A relationship.
+It cannot be instantiated just like the abstract class.
+Since Java 8, we can have default and static methods in an interface.
+//Since Java 9, we can have private methods in an interface.
+
+Why use Java interface?
+There are mainly three reasons to use interface. They are given below.
+•	It is used to achieve abstraction.
+•	By interface, we can support the functionality of multiple inheritance.
+•	It can be used to achieve loose coupling.
+•	Interfaces are used to implement abstraction. So the question arises why use interfaces when we have abstract classes?
+The reason is, abstract classes may contain non-final variables, whereas variables in interface are final, public and static.
+•	
+
+How to declare an interface?
+An interface is declared by using the interface keyword. 
+It provides total abstraction which means all the methods in an interface are declared with the empty body and all the fields are public static final by default. 
+A class that implements an interface must implement all the methods declared in the interface.
+Syntax:
+interface <interface_name>{  
+  // declare constant fields  
+  // declare methods that abstract   
+ // by default.  
+}  
+ 
+The Java compiler adds “public abstract” keywords before the interface method. 
+It adds public static final keywords before data members.
+
+ 
+
+-----------------------
+
+java String
+In Java, string is basically an object that represents sequence of char values. An array of characters works same as Java string. For example:
+1.	char[] ch={'j','a','v','a','t','p','o','i','n','t'};      
+1.	String s=new String(ch);    ==  String s="javatpoint";
+is same as:
+2.	String s="javatpoint";  
+Java String class provides a lot of methods to perform operations on string such as compare(), concat(), equals(), split(), length(), replace(), compareTo(), intern(), substring() etc.
+The java.lang.String class implements Serializable, Comparable and CharSequence interfaces.
+CharSequence Interface
+The CharSequence interface is used to represent the sequence of characters. String, StringBuffer and StringBuilder classes implement it. It means, we can create strings in java by using these three classes.
+The Java String is immutable which means it cannot be changed. Whenever we change any string, a new instance is created. For mutable strings, you can use StringBuffer and StringBuilder classes.
+We will discuss immutable string later. Let's first understand what is String in Java and how to create the String object.
+________________________________________
+What is String in java
+Generally, String is a sequence of characters. But in Java, string is an object that represents a sequence of characters. The java.lang.String class is used to create a string object.
+How to create a string object?
+There are two ways to create String object:
+1.	By string literal
+2.	By new keyword
+________________________________________
+1) String Literal
+Java String literal is created by using double quotes. For Example:
+1.	String s="welcome";  
+Each time you create a string literal, the JVM checks the "string constant pool" first. If the string already exists in the pool, a reference to the pooled instance is returned. If the string doesn't exist in the pool, a new string instance is created and placed in the pool. For example:
+1.	String s1="Welcome"; // checks the "string constant pool" first if not exits string created ool
+2.	String s2="Welcome";//*** It doesn't create a new instance
+ 
+In the above example, only one object will be created. Firstly, JVM will not find any string object with the value "Welcome" in string constant pool, that is why it will create a new object. After that it will find the string with the value "Welcome" in the pool, it will not create a new object but will return the reference to the same instance.
+Note: String objects are stored in a special memory area known as the "string constant pool"
+Why Java uses the concept of String literal?
+To make Java more memory efficient  **** (because no new objects are created if it exists already in the string constant pool).
+2) By new keyword
+1.	String s=new String("Welcome");//creates two objects and one reference variable  
+In such case, JVM will create a new string object in normal (non-pool) heap memory, and the literal "Welcome" will be placed in the string constant pool. The variable s will refer to the object in a heap (non-pool).
+
+Java String Example
+1.	public class StringExample{  
+2.	public static void main(String args[]){  
+3.	String s1="java";//creating string by java string literal  
+4.	char ch[]={'s','t','r','i','n','g','s'};  
+5.	String s2=new String(ch);//converting char array to string  
+6.	String s3=new String("example");//creating java string by new keyword  
+7.	System.out.println(s1);  
+8.	System.out.println(s2);  
+9.	System.out.println(s3);  
+10.	}}  
+Test it Now
+java
+strings
+example
+
+Java String class methods
+The java.lang.String class provides many useful methods to perform operations on sequence of char values.
+No.	Method	Description
+1	char charAt(int index)
+returns char value for the particular index
+2	int length()
+returns string length
+3	static String format(String format, Object... args)
+returns a formatted string.
+4	static String format(Locale l, String format, Object... args)
+returns formatted string with given locale.
+5	String substring(int beginIndex)
+returns substring for given begin index.
+6	String substring(int beginIndex, int endIndex)
+returns substring for given begin index and end index.
+7	boolean contains(CharSequence s)
+returns true or false after matching the sequence of char value.
+8	static String join(CharSequence delimiter, CharSequence... elements)
+returns a joined string.
+9	static String join(CharSequence delimiter, Iterable<? extends CharSequence> elements)
+returns a joined string.
+10	boolean equals(Object another)
+checks the equality of string with the given object.
+11	boolean isEmpty()
+checks if string is empty.
+12	String concat(String str)
+concatenates the specified string.
+13	String replace(char old, char new)
+replaces all occurrences of the specified char value.
+14	String replace(CharSequence old, CharSequence new)
+replaces all occurrences of the specified CharSequence.
+15	static String equalsIgnoreCase(String another)
+compares another string. It doesn't check case.
+16	String[] split(String regex)
+returns a split string matching regex.
+17	String[] split(String regex, int limit)
+returns a split string matching regex and limit.
+18	String intern()
+returns an interned string.
+19	int indexOf(int ch)
+returns the specified char value index.
+20	int indexOf(int ch, int fromIndex)
+returns the specified char value index starting with given index.
+21	int indexOf(String substring)
+returns the specified substring index.
+22	int indexOf(String substring, int fromIndex)
+returns the specified substring index starting with given index.
+23	String toLowerCase()
+returns a string in lowercase.
+24	String toLowerCase(Locale l)
+returns a string in lowercase using specified locale.
+25	String toUpperCase()
+returns a string in uppercase.
+26	String toUpperCase(Locale l)
+returns a string in uppercase using specified locale.
+27	String trim()
+removes beginning and ending spaces of this string.
+28	static String valueOf(int value)
+converts given type into string. It is an overloaded method.
+
+
+
+
+------------------------
+
+Exception Handling in Java
+What is Exception in Java
+Dictionary Meaning Exception is an abnormal condition.
+In Java, an exception is an event that disrupts the normal flow of the program. It is an object which is thrown at runtime.
+What is Exception Handling
+Exception Handling is a mechanism to handle runtime errors such as ClassNotFoundException, IOException, SQLException, RemoteException, etc.
+Advantage of Exception Handling
+The core advantage of exception handling is to maintain the normal flow of the application. An exception normally disrupts the normal flow of the application that is why we use exception handling. Let's take a scenario:
+1.	statement 1;  
+2.	statement 2;  
+3.	statement 3;  
+4.	statement 4;  
+5.	statement 5;//exception occurs  
+6.	statement 6;  
+7.	statement 7;  
+8.	statement 8;  
+9.	statement 9;  
+10.	statement 10;  
+Suppose there are 10 statements in your program and there occurs an exception at statement 5, the rest of the code will not be executed i.e. statement 6 to 10 will not be executed. If we perform exception handling, the rest of the statement will be executed. That is why we use exception handling in Java.
+
+Hierarchy of Java Exception classes
+The java.lang.Throwable class is the root class of Java Exception hierarchy which is inherited by two subclasses: Exception and Error. A hierarchy of Java Exception classes are given below:
+ 
+________________________________________
+Types of Java Exceptions
+There are mainly two types of exceptions: checked and unchecked. Here, an error is considered as the unchecked exception. According to Oracle, there are three types of exceptions:
+1.	Checked Exception
+2.	Unchecked Exception
+3.	Error
+ 
+Difference between Checked and Unchecked Exceptions
+1) Checked Exception
+The classes which directly inherit Throwable class except RuntimeException and Error are known as checked exceptions e.g. IOException, SQLException, ClassNotFoundException etc. Checked exceptions are checked at compile-time.
+2) Unchecked Exception
+The classes which inherit RuntimeException are known as unchecked exceptions e.g. ArithmeticException, NullPointerException, ArrayIndexOutOfBoundsException etc. Unchecked exceptions are not checked at compile-time, but they are checedk at runtime.
+3) Error
+Error is irrecoverable e.g. OutOfMemoryError, VirtualMachineError, AssertionError etc.
+Java Exception Keywords
+There are 5 keywords which are used in handling exceptions in Java.
+Keyword	Description
+try	The "try" keyword is used to specify a block where we should place exception code. The try block must be followed by either catch or finally. It means, we can't use try block alone.
+catch	The "catch" block is used to handle the exception. It must be preceded by try block which means we can't use catch block alone. It can be followed by finally block later.
+finally	The "finally" block is used to execute the important code of the program. 
+It is executed whether an exception is handled or not.
+throw	The "throw" keyword is used to throw an exception.
+throws	The "throws" keyword is used to declare exceptions. It doesn't throw an exception. It specifies that there may occur an exception in the method. It is always used with method signature.
+Java Exception Handling Example
+Let's see an example of Java Exception Handling where we using a try-catch statement to handle the exception.
+1.	public class JavaExceptionExample{  
+2.	  public static void main(String args[]){  
+3.	   try{  
+4.	      //code that may raise exception  
+5.	      int data=100/0;  
+6.	   }catch(ArithmeticException e){System.out.println(e);}  
+7.	   //rest code of the program   
+8.	   System.out.println("rest of the code...");  
+9.	  }  
+10.	}  
+Test it Now
+Output:
+Exception in thread main java.lang.ArithmeticException:/ by zero
+rest of the code...
+In the above example, 100/0 raises an ArithmeticException which is handled by a try-catch block.
+
+Common Scenarios of Java Exceptions
+There are given some scenarios where unchecked exceptions may occur. They are as follows:
+1) A scenario where ArithmeticException occurs
+If we divide any number by zero, there occurs an ArithmeticException.
+1.	int a=50/0;//ArithmeticException  
+________________________________________
+2) A scenario where NullPointerException occurs
+If we have a null value in any variable, performing any operation on the variable throws a NullPointerException.
+1.	String s=null;  
+2.	System.out.println(s.length());//NullPointerException  
+
+3) A scenario where NumberFormatException occurs
+The wrong formatting of any value may occur NumberFormatException. Suppose I have a string variable that has characters, converting this variable into digit will occur NumberFormatException.
+1.	String s="abc";  
+2.	int i=Integer.parseInt(s);//NumberFormatException  
+
+4) A scenario where ArrayIndexOutOfBoundsException occurs
+If you are inserting any value in the wrong index, it would result in ArrayIndexOutOfBoundsException as shown below:
+1.	int a[]=new int[5];  
+2.	a[10]=50; //ArrayIndexOutOfBoundsException  
+Java Exceptions Index
+1.	Java Try-Catch Block
+2.	Java Multiple Catch Block
+3.	Java Nested Try
+4.	Java Finally Block
+5.	Java Throw Keyword
+6.	Java Exception Propagation
+7.	Java Throws Keyword
+8.	Java Throw vs Throws
+9.	Java Final vs Finally vs Finalize
+10.	Java Exception Handling with Method Overriding
+11.	Java Custom Exceptions
+
+--------------------------------
+
+Immutable String in Java
+In java, string objects are immutable. Immutable simply means unmodifiable or unchangeable.
+Once string object is created its data or state can't be changed but a new string object is created.
+Let's try to understand the immutability concept by the example given below:
+1.	class Testimmutablestring{  
+2.	 public static void main(String args[]){  
+3.	   String s="Sachin";  
+4.	   s.concat(" Tendulkar");//concat() method appends the string at the end  
+5.	   System.out.println(s);//will print Sachin because strings are immutable objects  
+6.	 }  
+7.	}  
+Test it Now
+Output:Sachin
+Now it can be understood by the diagram given below. Here Sachin is not changed but a new object is created with sachintendulkar. That is why string is known as immutable.
+ 
+As you can see in the above figure that two objects are created but s reference variable still refers to "Sachin" not to "Sachin Tendulkar".
+But if we explicitely assign it to the reference variable, it will refer to "Sachin Tendulkar" object. For example:
+1.	class Testimmutablestring1{  
+2.	 public static void main(String args[]){  
+3.	   String s="Sachin";  
+   s=s.concat(" Tendulkar");  
+4.	   System.out.println(s);  
+5.	 }  
+6.	}  
+Test it Now
+Output:Sachin Tendulkar
+In such case, s points to the "Sachin Tendulkar". Please notice that still sachin object is not modified.
+Why string objects are immutable in java?
+Because java uses the concept of string literal. Suppose there are 5 reference variables, all referes to one object "sachin". If one reference variable changes the value of the object, it will be affected to all the reference variables. That is why string objects are immutable in java.
+
+
+--------------------------------
+
+Java Enums
+The Enum in Java is a data type which contains a fixed set of constants.
+It can be used for days of the week (SUNDAY, MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, and SATURDAY) , directions (NORTH, SOUTH, EAST, and WEST), season (SPRING, SUMMER, WINTER, and AUTUMN or FALL), colors (RED, YELLOW, BLUE, GREEN, WHITE, and BLACK) etc. According to the Java naming conventions, we should have all constants in capital letters. So, we have enum constants in capital letters.
+Java Enums can be thought of as classes which have a fixed set of constants (a variable that does not change). The Java enum constants are static and final implicitly.
+Enums are used to create our own data type like classes. 
+Java Enum internally inherits the Enum class, so it cannot inherit any other class, but it can implement many interfaces. We can have fields, constructors, methods, and main methods in Java enum.
+Points to remember for Java Enum
+o	Enum improves type safety
+o	Enum can be easily used in switch
+o	Enum can be traversed
+o	Enum can have fields, constructors and methods
+o	Enum may implement many interfaces but cannot extend any class because it internally extends Enum class
+Defining Java Enum
+The enum can be defined within or outside the class because it is similar to a class. The semicolon (;) at the end of the enum constants are optional. For example:
+1.	enum Season { WINTER, SPRING, SUMMER, FALL }  
+Or,
+1.	enum Season { WINTER, SPRING, SUMMER, FALL; }  
+
+Example of Java Enum
+1.	class EnumExample1{  
+2.	//defining the enum inside the class  
+3.	public enum Season { WINTER, SPRING, SUMMER, FALL }  
+4.	//main method  
+5.	public static void main(String[] args) {  
+6.	//traversing the enum  
+7.	for (Season s : Season.values())  
+8.	System.out.println(s);  
+9.	}}  
+
+Note: Java compiler internally adds values(), valueOf() and ordinal() methods within the enum at compile time. It internally creates a static and final class for the enum.
+What is the purpose of the values() method in the enum?
+The Java compiler internally adds the values() method when it creates an enum. The values() method returns an array containing all the values of the enum.
+What is the purpose of the valueOf() method in the enum?
+The Java compiler internally adds the valueOf() method when it creates an enum. The valueOf() method returns the value of given constant enum.
+What is the purpose of the ordinal() method in the enum?
+The Java compiler internally adds the ordinal() method when it creates an enum. The ordinal() method returns the index of the enum value.
+example of Java enum where we are using value(), valueOf(), and ordinal() methods of Java enum.
+1.	class EnumExample1{  
+2.	//defining enum within class  
+3.	public enum Season { WINTER, SPRING, SUMMER, FALL }  
+4.	//creating the main method  
+5.	public static void main(String[] args) {  
+6.	//printing all enum  
+7.	for (Season s : Season.values()){  
+8.	System.out.println(s);  
+9.	}  
+10.	System.out.println("Value of WINTER is: "+Season.valueOf("WINTER"));  
+11.	System.out.println("Index of WINTER is: "+Season.valueOf("WINTER").ordinal());  
+12.	System.out.println("Index of SUMMER is: "+Season.valueOf("SUMMER").ordinal());  
+13.	  
+14.	}}  
+Java Enum Example: Defined outside class
+1.	enum Season { WINTER, SPRING, SUMMER, FALL }  
+2.	class EnumExample2{  
+3.	public static void main(String[] args) {  
+4.	Season s=Season.WINTER;  
+5.	System.out.println(s);  
+6.	}}  
+
+Initializing specific values to the enum constants
+The enum constants have an initial value which starts from 0, 1, 2, 3, and so on. But, we can initialize the specific value to the enum constants by defining fields and constructors. As specified earlier, Enum can have fields, constructors, and methods.
+Example of specifying initial value to the enum constants
+1.	class EnumExample4{  
+2.	enum Season{   
+3.	WINTER(5), SPRING(10), SUMMER(15), FALL(20);   
+4.	  
+5.	private int value;  
+6.	private Season(int value){  
+7.	this.value=value;  
+8.	}  
+9.	}  
+10.	public static void main(String args[]){  
+11.	for (Season s : Season.values())  
+12.	System.out.println(s+" "+s.value);  
+13.	  
+14.	}}  
+15.	      
+
+Constructor of enum type is private. If you don't declare private compiler internally creates private constructor.
+1.	enum Season{  
+2.	WINTER(10),SUMMER(20);  
+3.	private int value;  
+4.	Season(int value){  
+5.	this.value=value;  
+6.	}  
+7.	}      
+Internal code generated by the compiler for the above example of enum type
+1.	final class Season extends Enum  
+2.	{  
+3.	    public static Season[] values()  
+4.	    {  
+5.	        return (Season[])$VALUES.clone();  
+6.	    }  
+7.	    public static Season valueOf(String s)  
+8.	    {  
+9.	        return (Season)Enum.valueOf(Season, s);  
+10.	    }  
+11.	    private Season(String s, int i, int j)  
+12.	    {  
+13.	        super(s, i);  
+14.	        value = j;  
+15.	    }  
+16.	    public static final Season WINTER;  
+17.	    public static final Season SUMMER;  
+18.	    private int value;  
+19.	    private static final Season $VALUES[];  
+20.	    static   
+21.	    {  
+22.	        WINTER = new Season("WINTER", 0, 10);  
+23.	        SUMMER = new Season("SUMMER", 1, 20);  
+24.	        $VALUES = (new Season[] {  
+25.	            WINTER, SUMMER  
+26.	        });  
+27.	    }  
+28.	}  
+________________________________________
+Can we create the instance of Enum by new keyword?
+No, because it contains private constructors only.
+________________________________________
+Can we have an abstract method in the Enum?
+Yes, Of course! we can have abstract methods and can provide the implementation of these methods.
+________________________________________
+Java Enum in a switch statement
+We can apply enum on switch statement as in the given example:
+Example of applying Enum on a switch statement
+1.	class EnumExample5{  
+2.	enum Day{ SUNDAY, MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY}  
+3.	public static void main(String args[]){  
+4.	Day day=Day.MONDAY;  
+5.	  
+6.	switch(day){  
+7.	case SUNDAY:   
+8.	 System.out.println("sunday");  
+9.	 break;  
+10.	case MONDAY:   
+11.	 System.out.println("monday");  
+12.	 break;  
+13.	default:  
+14.	System.out.println("other day");  
+15.	}  
+16.	}}  
+
+---------------------------------
+
+•	The Java Generics programming is introduced to deal with type-safe objects. 
+•	It makes the code stable by detecting the bugs at compile time.
+•	Before generics, we can store any type of objects in the collection, i.e., non-generic. 
+•	Now generics force the java programmer to store a specific type of objects.
+Syntax to use generic collection
+1.	ClassOrInterface<Type>    
+Example to use Generics in java
+1.	ArrayList<String>    
+
+Advantage of Java Generics
+1) Type-safety: We can hold only a single type of objects in generics. It doesn?t allow to store other objects.
+2) Type casting is not required: There is no need to typecast the object.
+Before Generics, we need to type cast.
+3) Compile-Time Checking: It is checked at compile time so problem will not occur at runtime. The good programming strategy says it is far better to handle the problem at compile time than runtime.
+
+1) Type-safety: We can hold only a single type of objects in generics. It doesn?t allow to store other objects.
+Without Generics, we can store any type of objects.
+1.	List list = new ArrayList();    
+2.	list.add(10);  
+3.	list.add("10");  
+4.	With Generics, it is required to specify the type of object we need to store.  
+5.	List<Integer> list = new ArrayList<Integer>();    
+6.	list.add(10);  
+7.	list.add("10");// compile-time error  
+
+
+2) Type casting is not required: There is no need to typecast the object.
+Before Generics, we need to type cast.
+1.	List list = new ArrayList();    
+2.	list.add("hello");    
+3.	String s = (String) list.get(0);//typecasting    
+4.	After Generics, we don't need to typecast the object.  
+5.	List<String> list = new ArrayList<String>();    
+6.	list.add("hello");    
+7.	String s = list.get(0);  
+3) Compile-Time Checking: It is checked at compile time so problem will not occur at runtime. The good programming strategy says it is far better to handle the problem at compile time than runtime.
+1.	List<String> list = new ArrayList<String>();    
+2.	list.add("hello");    
+3.	list.add(32);//Compile Time Error   
+
+-----------------------------
+
+Constructor overloading in java
+
+Constructor overloading in java allows having more than one constructor inside one Class.
+Important points related to Constructor overloading:
+1. Constructor overloading is similar to method overloading in Java.
+
+2. You can call overloaded constructor by using this() keyword in Java.
+3. overloaded constructor must be called from another constructor only.
+
+4. make sure you add no argument default constructor because once compiler will not add if you have added any constructor in Java.
+
+5. if an overloaded constructor called , it must be the first statement of constructor in java.
+
+6. Its best practice to have one primary constructor and let overloaded constructor calls that. this way
+your initialization code will be centralized and easier to test and maintain.
+
+public loan(){
+  this("");  //correct
+}
+
+public loan(String type){
+  this.loanType= type;
+}
+
+
+Constructor Overloading in Java with examples
+BY CHAITANYA SINGH | FILED UNDER: OOPS CONCEPT
+Like methods, constructors can also be overloaded. In this guide we will see Constructor overloading with the help of examples. Before we proceed further let’s understand what is constructor overloading and why we do it.
+Constructor overloading is a concept of having more than one constructor with different parameters list, in such a way so that each constructor performs a different task. For e.g. Vector class has 4 types of constructors. If you do not want to specify the initial capacity and capacity increment then you can simply use default constructor of Vector class like this Vector v = new Vector(); however if you need to specify the capacity and increment then you call the parameterized constructor of Vector class with two int arguments like this: Vector v= new Vector(10, 5);
+ 
+You must have understood the purpose of constructor overloading. Lets see how to overload a constructor with the help of following java program.
+Constructor Overloading Example
+Here we are creating two objects of class StudentData. One is with default constructor and another one using parameterized constructor. Both the constructors have different initialization code, similarly you can create any number of constructors with different-2 initialization codes for different-2 purposes.
+StudentData.java
+class StudentData
+{
+   private int stuID;
+   private String stuName;
+   private int stuAge;
+   StudentData()
+   {
+       //Default constructor
+       stuID = 100;
+       stuName = "New Student";
+       stuAge = 18;
+   }
+   StudentData(int num1, String str, int num2)
+   {
+       //Parameterized constructor
+       stuID = num1;
+       stuName = str;
+       stuAge = num2;
+   }
+   //Getter and setter methods
+   public int getStuID() {
+       return stuID;
+   }
+   public void setStuID(int stuID) {
+       this.stuID = stuID;
+   }
+   public String getStuName() {
+       return stuName;
+   }
+   public void setStuName(String stuName) {
+       this.stuName = stuName;
+   }
+   public int getStuAge() {
+       return stuAge;
+   }
+   public void setStuAge(int stuAge) {
+       this.stuAge = stuAge;
+   }
+
+   public static void main(String args[])
+   {
+       //This object creation would call the default constructor
+       StudentData myobj = new StudentData();
+       System.out.println("Student Name is: "+myobj.getStuName());
+       System.out.println("Student Age is: "+myobj.getStuAge());
+       System.out.println("Student ID is: "+myobj.getStuID());
+
+       /*This object creation would call the parameterized
+        * constructor StudentData(int, String, int)*/
+       StudentData myobj2 = new StudentData(555, "Chaitanya", 25);
+       System.out.println("Student Name is: "+myobj2.getStuName());
+       System.out.println("Student Age is: "+myobj2.getStuAge());
+       System.out.println("Student ID is: "+myobj2.getStuID()); 
+  }
+}
+Output:
+Student Name is: New Student
+Student Age is: 18
+Student ID is: 100
+Student Name is: Chaitanya
+Student Age is: 25
+Student ID is: 555
+Let’s understand the role of this () in constructor overloading
+public class OverloadingExample2
+{
+   private int rollNum;
+   OverloadingExample2()
+   {
+      rollNum =100;
+   }
+   OverloadingExample2(int rnum)
+   {
+      this();
+      /*this() is used for calling the default  
+       * constructor from parameterized constructor.
+       * It should always be the first statement 
+       * inside constructor body.
+       */
+      rollNum = rollNum+ rnum;
+   }
+   public int getRollNum() {
+	  return rollNum;
+   }
+   public void setRollNum(int rollNum) {
+	  this.rollNum = rollNum;
+   }
+   public static void main(String args[])
+   {
+	   OverloadingExample2 obj = new OverloadingExample2(12);
+       System.out.println(obj.getRollNum());
+    }
+}
+
+
+---------------------------------
+
+Java Access Modifiers – Public, Private, Protected & Default
+You must have seen public, private and protected keywords while practicing java programs, these are called access modifiers. An access modifier restricts the access of a class, constructor, data member and method in another class. In java we have four access modifiers:
+1. default
+2. private
+3. protected
+4. public
+Lets see the scope of these access modifiers in tabular form:
+The scope of access modifiers in tabular form
+------------+-------+---------+--------------+--------------+--------
+SCOPE       | Class | Package | Subclass     | Subclass     |Outside|
+            |       |         |(same package)|(diff package)|Class  |
+————————————+———————+—————————+——————————----+—————————----—+————————
+public      | Yes   |  Yes    |    Yes       |    Yes       |   Yes |    
+————————————+———————+—————————+—————————----—+—————————----—+————————
+protected   | Yes   |  Yes    |    Yes       |    Yes       |   No  |    
+————————————+———————+—————————+————————----——+————————----——+————————
+default     | Yes   |  Yes    |    Yes       |    No        |   No  |
+————————————+———————+—————————+————————----——+————————----——+————————
+private     | Yes   |  No     |    No        |    No        |   No  |
+------------+-------+---------+--------------+--------------+--------
+
+
+
+------------------------------------------
+
+System.out.println
+•	This statement is used for displaying the data or messages on to the consol (monitor).
+•	Here, println is the predefined instance method of print stream class.
+•	To call this method we require an object called print stream class.
+•	The object of print stream class is called out is created as a static data member in system
+Class (system is a predefined class).
+•	 Hence to call the println method we must use the following statement:
+
+
+System.out.println (“WELCOME TO JAVA”);
+-----------------------------
+
+Difference between == and .equals() method in Java
+In general both equals() and “==” operator in Java are used to compare objects to check equality but here are some of the differences between the two:
+1.	Main difference between .equals() method and == operator is that one is method and other is operator.
+2.	We can use == operators for reference comparison (address comparison) and .equals() method for content comparison. In simple words, == checks if both objects point to the same memory location whereas .equals() evaluates to the comparison of values in the objects.
+3.	If a class does not override the equals method, then by default it uses equals(Object o) method of the closest parent class that has overridden this method. See this for detail
+4.	Coding Example
+
+// Java program to understand  
+// the concept of == operator 
+public class Test { 
+    public static void main(String[] args) 
+    { 
+        String s1 = new String("HELLO"); 
+        String s2 = new String("HELLO"); 
+        System.out.println(s1 == s2); 
+        System.out.println(s1.equals(s2)); 
+    } 
+} 
+Output:
+false
+true
+
+	
+@Test
+	public void test() {
+		System.out.println("strLiteral : "+strLiteral);
+		System.out.println("strNewString : "+strNewString);
+		System.out.println("");
+		 
+		System.out.println("");
+		if(strLiteral==strNewString) {
+			System.out.println("strLiteral==strNewString");
+		}
+		if(strLiteral.equalsIgnoreCase(strNewString)) {
+			System.out.println("strLiteral.equalsIgnoreCase(strNewString)");
+		}
+
+Output:
+strLiteral.equalsIgnoreCase(strNewString)
+PASSED: test
+-----------------------------------------
+
