@@ -1,0 +1,111 @@
+Difference between JDK, JRE, and JVM
+
+JVM (Java Virtual Machine)
+It is called a virtual machine because it doesn't physically exist. It is a specification that provides a runtime environment in which Java byte code can be executed.
+JVMs are available for many hardware and software platforms. 
+The JVM performs the following main tasks:
+
+•	Loads code
+•	Verifies code
+•	Executes code
+•	Provides runtime environment
+
+JRE (Java Runtime Environment)
+The Java Runtime Environment is a set of software tools which are used for developing Java applications, it provide the runtime environment. 
+It is the implementation of JVM.
+It physically exists. It contains a set of libraries + other files that JVM uses at runtime.
+
+ 
+
+JDK (Java Development Kit)
+The Java Development Kit (JDK) is a software development environment which is used to develop Java applications.
+It physically exists. It contains JRE + development tools.
+JDK is an implementation of any one of the below given Java Platforms released by Oracle Corporation:
+•	JSE (Standard Edition Java Platform)
+•	JEE (Enterprise Edition Java Platform)
+•	JME (Micro Edition Java Platform)
+The JDK contains a private Java Virtual Machine (JVM) and few other resources such as an interpreter/loader (java), a compiler (javac), an archiver (jar), a documentation generator (Java doc), etc. to complete the development of a Java Application.
+************************
+ 
+Features of Java
+****************
+The primary objective of Java programming language creation was to make it portable, simple and secure programming language. Apart from this, there are also some excellent features which play an important role in the popularity of this language. The features of Java are also known as java buzzwords.
+A list of most important features of Java language is given below.
+
+1.	Simple
+2.	Object-Oriented
+3.	Portable
+4.	Platform independent
+5.	Secured
+6.	Robust
+7.	Architecture neutral
+8.	Interpreted
+9.	High Performance
+10.	Multithreaded
+11.	Distributed
+12.	Dynamic
+
+Simple
+Java is very easy to learn, and its syntax is simple, clean and easy to understand. According to Sun, Java language is a simple programming language because:
+
+Object-oriented
+Java is an object-oriented programming language. Everything in Java is an object. Object-oriented means we organize our software as a combination of different types of objects that incorporates both data and behavior.
+Object-oriented programming (OOPs) is a methodology that simplifies software development and maintenance by providing some rules.
+Basic concepts of OOPs are:
+1.	Object
+2.	Class
+3.	Inheritance
+4.	Polymorphism
+5.	Abstraction
+6.	Encapsulation
+
+Platform Independent
+Java is platform independent because it is different from other languages like C, C++, etc. which are compiled into platform specific machines while Java is a write once, run anywhere language. A platform is the hardware or software environment in which a program runs.
+There are two types of platforms software-based and hardware-based. Java provides a software-based platform.
+The Java platform differs from most other platforms in the sense that it is a software-based platform that runs on the top of other hardware-based platforms. It has two components:
+1.	Runtime Environment
+2.	API(Application Programming Interface)
+
+Java code can be run on multiple platforms, for example, Windows, Linux, Sun Solaris, Mac/OS, etc. Java code is compiled by the compiler and converted into bytecode. This bytecode is a platform-independent code because it can be run on multiple platforms, i.e., Write Once and Run Anywhere (WORA).
+
+Secured
+Java is best known for its security. With Java, we can develop virus-free systems. Java is secured because:
+•	No explicit pointer
+•	Java Programs run inside a virtual machine sandbox
+•	Bytecode Verifier: It checks the code fragments for illegal code that can violate access right to objects.
+
+Robust
+Robust simply means strong. Java is robust because:
+•	It uses strong memory management.
+•	There is a lack of pointers that avoids security problems.
+•	There is automatic garbage collection in java which runs on the Java Virtual Machine to get rid of objects which are not being used by a Java application anymore.
+
+Architecture-neutral
+Java is architecture neutral because there are no implementation dependent features, for example, the size of primitive types is fixed.
+C	Java
+int data type
+2 bytes of memory for 32-bit architecture and 
+4 bytes of memory for 64-bit architecture.	int data type
+4 bytes of memory for both 32 and 64-bit architectures in Java.
+
+
+In C programming, int data type occupies 2 bytes of memory for 32-bit architecture and 4 bytes of memory for 64-bit architecture. However, it occupies 4 bytes of memory for both 32 and 64-bit architectures in Java.
+
+Portable
+Java is portable because it facilitates you to carry the Java bytecode to any platform. It doesn't require any implementation.
+High-performance
+Java is faster than other traditional interpreted programming languages because Java byte code is "close" to native code.
+
+Distributed
+Java is distributed because it facilitates users to create distributed applications in Java. 
+
+Dynamic
+Java is a dynamic language. It supports dynamic loading of classes. It means classes are loaded on demand.
+
+Class loader: 
+Class loader in Java is a part of the Java Runtime Environment (JRE) which is used to load Java classes into the Java Virtual Machine dynamically.
+
+garbage collection: 
+Dynamic compilation and automatic memory management .
+
+
