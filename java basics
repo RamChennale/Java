@@ -1018,4 +1018,79 @@ Output:
 strLiteral.equalsIgnoreCase(strNewString)
 PASSED: test
 -----------------------------------------
+What is the difference between Java Logger and System.out.println
+
+
+6down voteaccepted	Usually, because a Logger can be configured to write to a file (and the console). It might also be configured at higher (or lower) granularity as to messaging. For example, you might configure (at runtime) for level of warn. In which case, that looger would not display debug or info messages. It can include information such as the class that is writing, a line number, and a date and time (of the message).
+
+
+2down vote	The main difference between a Logger and System.out.println is 
+Logger: Prints the text in a file(text file)
+System.out.println: Prints the output in console
+
+Logger is useful when you are going for any LIVE projects. 
+Because if any project is developed and deployed, then you cannot check the console. At that time Logger will be useful to track the flow of your project also you can find the Error or Exception if you have given the logger in catch{...} block
+
+--------------------------------------
+What is the meaning of “$” sign in javascript
+
+
+210down voteaccepted	Your snippet of code looks like it's referencing methods from one of the popular JavaScript libraries (jQuery, ProtoType, mooTools, and so on).
+There's nothing mysterious about the use of $ in JavaScript. $ is simply a valid JavaScript identifier.
+JavaScript allows upper and lower letters, numbers, and $ and _. The $ was intended to be used for machine-generated variables (such as $0001).
+Prototype, jQuery, and most javascript libraries use the $ as the primary base object (or function). Most of them also have a way to relinquish the $ so that it can be used with another library that uses it. In that case you use jQuery instead of $. In fact, $ is just a shortcut for jQuery.
+
+
+
+29down vote	That is most likely jQuery code (more precisely, JavaScript using the jQuery library).
+The $ represents the jQuery Function, and is actually a shorthand alias for jQuery. (Unlike in most languages, the $ symbol is not reserved, and may be used as a variable name.) It is typically used as a selector (i.e. a function that returns a set of elements found in the DOM).
+
+---------------------------
+
+what is the purpose of method overriding in java where v r
+completely re-defining a inherited method instead y can't v
+create a new method and define.If the question is very silly
+plz excuse me and do reply.Thank U!
+Question Posted / Anithababu1
+•	 7 Answers
+•	 17941 Views
+•	 emc2, Kumaran Systems, I also Faced
+•	 E-Mail Answers
+Answers Were Sorted Based On User's Feedback
+
+
+Answer / Sridharan
+We know method overriding will be coming in inheritance. 
+Consider a mother and her daughter. 
+Lets think mothers will cook, so her daughter will also 
+cook. One day mother cooked a biryani for her daughter. By 
+using the method 
+
+cookBriyani(rice,vegetables,water,salt). {
+
+// mother style of cooking
+}
+But her daughter didn’t like it. So her daughter decided to 
+prepare biryani by herself. She is also going to use same 
+ingredients but she is going to prepare in her style. 
+Daughter method is
+
+cookBriyani(rice,vegetables,water,salt){
+// daughter style of cookling
+}
+Daughter made also biryani so without changing the 
+name i.e cookBriyani(), also she used same ingredients (i.e 
+rice,vegetables,water,salt) i.e same parameter but she 
+prepared in different style.
+----------------
+
+when to use toString() method
+
+In most languages, toString or the equivalent method just guarantees that an object can be represented textually.
+This is especially useful for logging, debugging, or any other circumstance where you need to be able to render any and every object you encounter as a string.
+Objects often implement custom toString behavior so that the method actually tells you something about the object instance. For example, a Person class might override it to return "Last name, First name" while a Date class will show the date formatted according to some default setting (such as the current user interface culture).
+
+
+
+
 
