@@ -1,0 +1,348 @@
+Application Programming Interface (API)
+
+API consists of a set of classes / functions / procedures which represent the business logic layer.
+OR
+API is a software intermediary that allows two applications to talk to each other.
+OR
+An API or Application Programming Interface is a set of programming instructions for accessing a web-based software application
+OR
+It enables communication and data exchange between two separate software systems.
+
+ 
+
+Imagine you've got a black box with a big red button on top. When you press the button, the black box lights up.
+In this example, pressing the red button means the black box will light up.  There is an understanding between you and the box that says "if I press the button, the box will light up."
+Think of an interface as the understanding between you and the box.
+
+API testing
+API Testing is entirely different from GUI Testing and mainly concentrates on the business logic layer of the software architecture.
+Instead of using standard user inputs (keyboard) and outputs, in API Testing, you use software to send calls to the API, get output, and note down the system's response.
+API Testing requires an application to interact with API. In order to test an API, you will need to
+•	Use Testing Tool to drive the API
+•	Write your own code to test the API
+Approach of API Testing:
+1.	Understanding the functionality of the API program and clearly define the scope of the program
+2.	Apply testing techniques such as equivalence classes, boundary value analysis and error guessing and write test cases for the API
+3.	Input Parameters for the API need to be planned and defined appropriately
+4.	Execute the test cases and compare expected and actual results.
+What to test for in API testing
+•	Usability testing: This testing verifies and whether the API is functional user-friendly. And does API integrates well with another platform as well
+•	Security testing: This testing includes what type of authentication is required and whether sensitive data is encrypted over HTTP or both (password should be encrypted should display as *****)
+•	Automated testing:  Automated API testing is the creation of a set of scripts or a tool that can be used to execute the API regularly.
+•	Documentation: The test team has to make sure that the documentation is adequate and provides enough information to interact with the API. Documentation should be a part of the final deliverable
+Types of Bugs that API testing detects
+•	Fails to handle error conditions gracefully
+•	Missing or duplicate functionality
+•	Reliability Issues (difficulty in connecting and getting a response from API).
+•	Security Issues
+•	Performance Issues. API response time is very high.
+•	Improper errors/warning message to caller.
+•	Incorrect handling of valid argument values
+•	Response Data is not structured correctly (JSON or XML)
+Tools for API testing
+1.	SOAP UI
+The most widely popular tool for API testing in the world, Soap UI allows you to test REST and SOAP APIs with ease – as it has been built specifically for API testing.
+•	Quick and Easy Test Creation: Point-and-click, drag-and-drop, functionality makes complicated tasks (like working with JSON and XML) simple
+•	Powerful data-driven testing: Load data from Excel, files, and databases to simulate the way consumers interact with your APIs
+•	Reusability of Scripts: Reuse your functional test cases as load tests and security scans in just a few clicks
+•	Seamless Integrations: Integrates with 13 API management platforms, supports REST, SOAP, JMS, and IoT.
+2.	Postman
+Postman is a plug-in in Google Chrome, and it can be used for testing API services. It is a powerful HTTP client to test web services. For manual or exploratory testing, Postman is a good choice for testing API.
+•	With Postman, almost all modern web API data can be extracted
+•	You can write Boolean tests within Postman Interface
+•	You can create a collection of REST calls and save each call as part of a collection for execution in future
+•	For transmitting and receiving REST information, Postman is more reliable
+
+3.	Swagger UI
+Swagger UI allows anyone be it your development team or your end consumers — to visualize and interact with the API’s resources without having any of the implementation logic in place. It’s automatically generated from your Open API (formerly known as Swagger) Specification, with the visual documentation making it easy for back end implementation and client side consumption.
+
+4.	JMeter
+JMeter is used for functional API testing which includes needed to test an API. It also has features which help to boost the performance of API testing.
+Features:
+•	It can be used for both static as well as dynamic resources performance testing.
+•	It supports replaying of test results
+•	It can automatically work with CSV files. This helps test team to produce unique parameter values for API tests
+
+-------------------------
+Challenges of API Testing
+-----------------------------
+Challenges of API testing include:
+•	Main challenges in API testing are Parameter Combination, Parameter Selection, and Call Sequencing.
+•	There is no GUI available to test the application which makes difficult to give input values.
+•	Validating and Verifying the output in different system is little difficult for testers
+•	Parameters selection and categorization is required to be known to the testers
+•	Exception handling function needs to be tested
+•	Coding knowledge is necessary for testers
+
+API consists of a set of classes / functions / procedures which represent the business logic layer. If API is not tested properly, it may cause problems not only the API application but also in the calling application.
+
+----------------------------
+Difference between URI and URL
+
+URI can be a name, locator, or both for an online resource where a URL is just the locator. URLs are a subset of URIs. That means all URLs are URIs.
+Not all URIs are URLs because a URI could be a name instead of a locator.
+Best ex: 
+Your name could be a URI because it identifies you, but it couldn't be a URL because it doesn't help anyone find your location. On the other hand, your address is both a URI and a URL because it both identifies you and it provides a location for you.
+•	The URI itself only provides identification; access to the resource is neither guaranteed nor implied by the presence of a URI.
+•	“URL” is a specific type of URI that provides an access method/location.
+
+ 
+------------------------------
+ Difference between QueryParam and pathParam
+QueryParams are the ones which come after the `?`, whereas path parameters are part of the URL path itself. An example will clear this:
+1.	http://api.bookstore.com/authors/twain-mark/books/roughing-it?show=price
+In this example, ‘twain-mark’, ‘roughing-it’ are path parameters whereas ‘show’ is a query parameter.
+Typically, a URI is of this format:
+1.	URI = scheme:[//authority]path[?query][#fragment]
+
+QueryParam:- In Restful service everything is based on Http protocol.
+So whenever we want to send some data we can send that data using query param appending to the url.
+Example:-
+http://localhost:8081/SearchApp/... Here QueryParam is name. and it’s value is java.
+So here QueryParams are optional , It’s not mandatory to send the query param.
+so if you not append the QueryParam you will not get 404 error. May be you will get some nullPointer exception as the value will be null.
+1.	@GET
+2.	@Path("/book")
+3.	List<String> getBooks(@QueryParam("name")String bookName){
+4.	 
+5.	}
+
+PathParam:-So if you want to send the data as mandatory you can append the value as a segment directly to the url. If you do not append the path param you will get 404 error.
+Example:- http://localhost:8081/SearchApp/book/java (so here directly the value java is appended as url segment)
+In Service
+You can retrieve like this :-
+1.	@GET
+2.	@Path("/book/{bookname}")
+3.	List<String> getBooks(@PathParam("bookname")String bookName){
+4.	 
+5.	}
+------------------------------ 
+HTTP Status Codes
+HTTP defines forty standard status codes that can be used to convey the results of a client’s request. The status codes are divided into the five categories presented below.
+Category	Description
+1xx: Informational	Communicates transfer protocol-level information messages.
+2xx: Success	Indicates that the client’s request was accepted successfully.
+3xx: Redirection	Indicates that the client must take some additional action in order to complete their request.
+4xx: Client Error	This category of error status codes points the finger at clients.
+5xx: Server Error	The server takes responsibility for these error status codes.
+
+
+------------------------------ 
+Testing REST API Manually
+
+•	Rest stands for Representational State Transfer. 
+•	A RESTful API -- also referred to as a RESTful web service
+•	REST is an architectural style and an approach for communication used in the development of Web Services.
+•	REST technology is generally preferred to the more robust Simple Object Access Protocol (SOAP) technology because REST leverages less band width.
+•	A RESTful API is an application program interface (API) that uses HTTP requests to GET, PUT, POST and DELETE data.
+
+There are mainly 4 methods involve in Api Testing like Get, POST, Delete, and PUT.
+•	GET- the GET method is used to extract information from the given server using a given URI. While using GET request, it should only extract data and should have no other effect on the data.
+•	POST- A POST request is used to create new entity. It can also be used to send data to the server, for example, customer information, file upload, etc. using HTML forms.
+•	PUT- Create a new entity or update an existing one.
+•	DELETE- Removes all current representations of the target resource given by a URI.
+
+How Restful APIs work
+
+A RESTful API breaks down a transaction to create a series of small modules. Each module addresses a particular underlying part of the transaction. This modularity provides developers with a lot of flexibility, but it can be challenging for developers to design from scratch
+
+A RESTful API explicitly takes advantage of HTTP methodologies 
+They use GET to retrieve a resource; 
+PUT to change the state of or update a resource, which can be an object, file or block; 
+POST to create that resource; and 
+DELETE to remove it.
+
+With REST networked components are a resource you request access to - a black box whose implementation details are unclear. 
+The presumption is that all calls are stateless; nothing can be retained by the RESTful service between executions. Because the calls are stateless, 
+Stateless components can be freely redeployed if something fails, and they can scale to accommodate load changes. This is because any request can be directed to any instance of a component; there can be nothing saved that has to be remembered by the next transaction. That makes REST preferred for web use.
+
+------------------------------ 
+Http Methods
+RESTful APIs enable you to develop any kind of web application having all possible CRUD (create, retrieve, update, delete) operations. REST guidelines suggest using a specific HTTP method on a specific type of call made to the server  
+
+HTTP GET
+HTTP POST
+HTTP PUT
+HTTP DELETE
+HTTP PATCH
+   
+1.	HTTP GET
+Use GET requests to retrieve resource representation/information only – and not to modify it in any way. 
+As GET requests do not change the state of the resource, these are said to be safe methods. 
+GET APIs should be idempotent, which means that making multiple identical requests must produce the same result every time until another API (POST or PUT) has changed the state of the resource on the server.
+If the Request-URI refers to a data-producing process, it is the produced data which shall be returned as the entity in the response and not the source text of the process, unless that text happens to be the output of the process.
+For any given HTTP GET API, if the resource is found on the server then it must return HTTP response code 200 (OK) – along with response body which is usually either XML or JSON content 
+In case resource is NOT found on server then it must return HTTP response code 404 (NOT FOUND). 
+Similarly, if it is determined that GET request itself is not correctly formed then server will return HTTP response code 400 (BAD REQUEST).
+Example request URIs
+•	HTTP GET http://www.appdomain.com/users
+2.	HTTP POST
+Use POST APIs to create new subordinate resources, e.g. a file is subordinate to a directory containing it or a row is subordinate to a database table. 
+Talking strictly in terms of REST, POST methods are used to create a new resource into the collection of resources.
+Ideally, if a resource has been created on the origin server, the response SHOULD be HTTP response code 201 (Created)
+Action performed by the POST method might not result in a resource that can be identified by a URI. In this case, either HTTP response code 200 (OK) or 204 (No Content) is the appropriate response status.
+Please note that POST is neither safe nor idempotent and invoking two identical POST requests will result in two different resources containing the same information (except resource ids).
+Example request URIs
+•	HTTP POST http://www.appdomain.com/users
+3.	HTTP PUT
+Use PUT APIs primarily to update existing resource (if the resource does not exist then API may decide to create a new resource or not).
+ If a new resource has been created by the PUT API, the origin server MUST inform the user agent via the HTTP response code 201 (Created) response. 
+If an existing resource is modified, either the 200 (OK) or 204 (No Content) response codes SHOULD be sent to indicate successful completion of the request.
+The difference between the POST and PUT APIs can be observed in request URIs. POST requests are made on resource collections whereas PUT requests are made on an individual resource.
+Example request URIs
+•	HTTP PUT http://www.appdomain.com/users/123
+4.	HTTP DELETE
+As the name applies, DELETE APIs are used to delete resources (identified by the Request-URI).
+A successful response of DELETE requests SHOULD be HTTP response code 200 (OK)
+ if the response includes an entity describing the status, 202 (Accepted) if the action has been queued, or 204 (No Content) 
+DELETE operations are idempotent. If you DELETE a resource, it’s removed from the collection of resource. Repeatedly calling DELETE API on that resource will not change the outcome – however calling DELETE on a resource a second time will return a 404 (NOT FOUND) since it was already removed. 
+Example request URIs
+•	HTTP DELETE http://www.appdomain.com/users/123
+5.	HTTP PATCH
+HTTP PATCH requests are to make partial update on a resource. If you see PUT requests also modify a resource entity so to make clearer.
+ PATCH method is the correct choice for partially updating an existing resource and PUT should only be used if you’re replacing a resource in its entirety.
+Please note that there are some challenges if you decide to use PATCH APIs in your application:
+•	Support for PATCH in browsers, servers, and web application frameworks is not universal. IE8, PHP, Tomcat, Django, and lots of other software has missing or broken support for it.
+•	Request payload of PATCH request is not straightforward as it is for PUT request. e.g.
+HTTP GET /users/1
+produces below response:
+{id: 1, username: 'admin', email: 'email@example.org'}
+A sample patch request to update the email will be like this:
+HTTP PATCH /users/1
+[
+{ “op”: “replace”, “path”: “/email”, “value”: “new.email@example.org” }
+]
+PATCH method is not a replacement for the POST or PUT methods. It applies a delta (diff) rather than replacing the entire resource.
+
+
+Summary of HTTP Methods for RESTful APIs
+Below table summarises the use of HTTP methods discussed above.
+HTTP METHOD	CRUD	ENTIRE COLLECTION (E.G. /USERS)	SPECIFIC ITEM (E.G. /USERS/123)
+POST	Create	201 (Created), ‘Location’ header with link to /users/{id} containing new ID.	Avoid using POST on single resource
+GET	Read	200 (OK), list of users. Use pagination, sorting and filtering to navigate big lists.	200 (OK), single user. 404 (Not Found), if ID not found or invalid.
+PUT	Update/Replace	404 (Not Found), unless you want to update every resource in the entire collection of resource.	200 (OK) or 204 (No Content). Use 404 (Not Found), if ID not found or invalid.
+PATCH	Partial Update/Modify	404 (Not Found), unless you want to modify the collection itself.	200 (OK) or 204 (No Content). Use 404 (Not Found), if ID not found or invalid.
+DELETE	Delete	404 (Not Found), unless you want to delete the whole collection — use with caution.	200 (OK). 404 (Not Found), if ID not found or invalid.
+Idempotent Methods
+The term idempotent is used more comprehensively to describe an operation that will produce the same results if executed once or multiple times. This is a very useful property in many situations, as it means that an operation can be repeated or retried as often as necessary without causing unintended effects. With non-idempotent operations, the algorithm may have to keep track of whether the operation was already performed or not.
+In HTTP specification, the methods GET, HEAD, PUT and DELETE are declared idempotent methods. Other methods OPTIONS and TRACE SHOULD NOT have side effects so both are also inherently idempotent.
+
+------------------------------ 
+SOAP (abbreviation for Simple Object Access Protocol) is a messaging protocol specification for exchanging structured information in the implementation of web services in computer networks. Its purpose is to provide extensibility, neutrality and independence
+SOAP allows processes running on disparate operating systems (such as Windows and Linux) to communicate using Extensible Markup Language (XML). Since Web protocols like HTTP are installed and running on all operating systems, SOAP allows clients to invoke web services and receive responses independent of language and platforms.
+
+------------------------------ 
+SOAP vs REST
+The term web API generally refers to both sides of computer systems communicating over a network: the API services offered by a server, as well as the API offered by the client such as a web browser.
+The server-side portion of the web API is a programmatic interface to a defined request-response message system, and is typically referred to as the Web Service. There are several design models for web services, but the two most dominant are SOAP and REST.
+SOAP provides the following advantages when compared to REST:
+•	Language, platform, and transport independent (REST requires use of HTTP)     
+•	Works well in distributed enterprise environments (REST assumes direct point-to-point communication)
+•	Standardized
+•	Provides significant pre-build extensibility in the form of the WS* standards
+•	Built-in error handling
+•	Automation when used with certain language products
+REST is easier to use for the most part and is more flexible. It has the following advantages when compared to SOAP:
+•	Uses easy to understand standards like swagger and OpenAPI Specification 3.0
+•	Smaller learning curve
+•	Efficient (SOAP uses XML for all messages, REST mostly uses smaller message formats like JSON)
+•	Fast (no extensive processing required)
+•	Closer to other Web technologies in design philosophy
+As one REST API tutorial put it: SOAP is  like an envelope while REST is just a postcard.
+Certainly a postcard is faster and cheaper to send than an envelope, but it could still be wrapped within something else, even an envelope.
+You can just read a postcard too, while an envelope takes a few extra steps, like opening or unwrapping to access what’s inside.   
+This is just the TLDR version, keep reading below to go into more details about the two formats. Or, check out the SOAP vs REST infographic if that's more your style. 
+ 
+SOAP
+SOAP – Simple Object Access Protocol – is probably the better known of the two models.
+SOAP relies heavily on XML, and together with schemas, defines a very strongly typed messaging framework.
+Every operation the service provides is explicitly defined, along with the XML structure of the request and response for that operation.
+Each input parameter is similarly defined and bound to a type: for example an integer, a string, or some other complex object. 
+All of this is codified in the WSDL – Web Service Description (or Definition, in later versions) Language. The WSDL is often explained as a contract between the provider and the consumer of the service. In programming terms the WSDL can be thought of as a method signature for the web service.
+
+
+
+
+
+
+
+
+
+
+
+
+
+When talking about API (application programming interface) architectures, it’s common to want to compare SOAP vs. REST, two of the most common API paradigms. Although the two are often compared as apples to apples, they’re inherently different technologies and aren’t easily compared on a granular level.
+Why? Because SOAP is a protocol, and REST is an architectural style. A REST API can actually utilize the SOAP protocol, just like it can use HTTP. So, right off the bat, they’re going to be packaged differently, function differently, and be used in different scenarios.
+Now that we’ve gotten that out of the way, let’s look at little closer at each—including some of the pros that would make you want to use one over the other for your application, if the shoe fits.
+FIRST, WHAT IS AN API?
+In the simplest of terms, an API is a piece of software that plugs one application directly into the data and services of another by granting it access to specific parts of a server. APIs let two pieces of software communicate, they’re the basis for everything we do on mobile, and they allow us to streamline IT architectures, power savvier marketing efforts, and make easier to share data sets.
+WHAT IS A REST API?
+REST (Representational State Transfer) is truly a “web services” API. REST APIs are based on URIs (Uniform Resource Identifier, of which a URL is a specific type) and the HTTP protocol, and use JSON for a data format, which is super browser-compatible. (It could also theoretically use the SOAP protocol, as we mentioned above.) REST APIs can be simple to build and scale, but they can also be massive and complicated—it’s all in how they’re built, added on to, and what they’re designed to do.
+Reasons you may want to build an API to be RESTful include resource limitations, fewer security requirements, browser client compatibility, discoverability, data health, and scalability—things that really apply to web services.
+Some quick REST information:
+•	REST is all about simplicity, thanks to HTTP protocols.
+•	REST APIs facilitate client-server communications and architectures. If it’s RESTful, it’s built on this client-server principle, with round trips between the two passing payloads of information.
+•	REST APIs use a single uniform interface. This simplifies how applications interact with the API by requiring they all interface in the same way, through the same portal. This has advantages and disadvantages; check with your developer to see if this will affect implementation changes down the road.
+•	REST is optimized for the web. Using JSON as its data format makes it compatible with browsers.
+•	REST is known for excellent performance and scalability. But, like any technology, it can get bogged down or bog down your app. That’s why languages like GraphQL have come along to address problems even REST can’t solve.
+[fl_widget title=”Find Top SOAP Developers on Upwork” query=”skills:soap AND title:%22SOAP%22″]
+WHAT IS SOAP?
+SOAP (Simple Object Access Protocol) is its own protocol, and is a bit more complex by defining more standards than REST—things like security and how messages are sent. These built-in standards do carry a bit more overhead, but can be a deciding factor for organizations that require more comprehensive features in the way of security, transactions, and ACID (Atomicity, Consistency, Isolation, Durability) compliance. For the sake of this comparison, we should point out that many of the reasons SOAP is a good choice rarely apply to web services scenarios, which make it more ideal for enterprise-type situations.
+Reasons you may want to build an application with a SOAP API include higher levels of security (e.g., a mobile application interfacing with a bank), messaging apps that need reliable communication, or ACID compliance.
+•	SOAP has tighter security. WS-Security, in addition to SSL support, is a built-in standard that gives SOAP some more enterprise-level security features, if you have a requirement for them.
+•	Successful/retry logic for reliable messaging functionality. Rest doesn’t have a standard messaging system and can only address communication failures by retrying. SOAP has successful/retry logic built in and provides end-to-end reliability even through SOAP intermediaries.
+•	SOAP has built-in ACID compliance. ACID compliance reduces anomalies and protects the integrity of a database by prescribing exactly how transactions can interact with the database. ACID is more conservative than other data consistency models, which is why it’s typically favored when handling financial or otherwise sensitive transactions.
+
+------------------------------ 
+What Is a URL?
+URL is a Uniform Resource Locator and is the address we use to access websites and web
+applications.
+The above URL can be broken down into the form:
+scheme://host/resource
+• scheme - http
+• host - compendiumdev.co.uk
+• resource - apps/mocktracks/projectsjson.php
+A larger form for a URL is:
+scheme://host:port/resource?query#fragment
+
+------------------------------ 
+
+Difference between RestAssured baseUIR and RestAssured basePath
+BaseURI is the address where different resources are located. (Like pool)
+Base Path which is appended with BaseURI to locate a resource (points specific resource)
+We all know about Google whose URL is ” https://www.google.com/“. Actually this is base URI of Google. Now append “/maps” in last of base url “https://www.google.com/” as “https://www.google.com/maps“. Google will launch Google Maps. Try same with “/news”. Google will launch Google News. Here “Maps” and “News” are actually resources which are called as base path. So to summarize, BaseURI is the address where different resources are located. A Base Path which is appended with BaseURI to locate a resource.
+1.	If we see RestFul Booker API doc, we can easily find BaseURI and BasePath:-
+2.	https://restful-booker.herokuapp.com/auth
+3.	https://restful-booker.herokuapp.com/booking
+4.	https://restful-booker.herokuapp.com/ping
+5.	Above, Underlined string is BaseURI and bold string is BasePath.
+6.	RestAssured provides multiple ways to setup BaseURI and BasePath. We can setup BaseURI and BasePath for individual request as well as for multiple requests at once.
+7.	Setting BaseURI and BasePath for individual request:-
+8.	To set for specific request, we can use methods provided by RequestSpecification interface. See an example below :-
+RequestSpecification request = RestAssured.given();
+request.baseUri("https://restful-booker.herokuapp.com");
+request.basePath("/booking");
+
+Setting BaseURI and BasePath at global level:-
+If we have same BaseURI and BasePath for all or a group of requests , mentioning again and again for each request is not a good practice. Rest Assured provides global set up of BaseURI and BasePath so that it will be applicable for all required requests. We need to use RestAssured class for it. It provides static fields to set BaseUri and BasePath. See an example below:-
+RestAssured.baseURI = "https://restful-booker.herokuapp.com";
+RestAssured.basePath ="/booking";
+
+------------------------------
+  What is Query Parameter? Query Parameter is used to filter or sort the resources.
+ 
+For example, In case, if we need to filter out the students based on their class or section, we are going to use ‘Query Parameter’.
+ 
+  GET /students?class=9&section=B
+ 
+Sometimes there is a confusion between Query Parameter and URI Parameter (or Path Parameter). 
+
+‘Path Parameter’ is basically used to identify a specific
+  resource.
+ 
+For example, In case, if we need to identify a student based on his/her
+  rollNumber, we are going to use ‘Path Parameter’.
+ 
+-----------------------------
+
